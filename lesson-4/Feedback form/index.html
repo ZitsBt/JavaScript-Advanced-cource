@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Feadback form</title>
+</head>
+
+<body>
+
+  <form class="form" action="#">
+
+    <div class="name">
+      <label for="name">Name</label>
+      <input id="name" class="name-input" type="text" placeholder="Username">
+      <div class="error">&ast;Name entered incorrectly</div>
+    </div>
+
+    <div class="email">
+      <label for="email">Email</label>
+      <input id="email" class="email-input" type="email" placeholder="email@email.com">
+      <div class="error">&ast;Email entered incorrectly</div>
+    </div>
+
+    <div class="phone">
+      <label for="phone">Phone</label>
+      <input id="phone" class="phone-input" type="text" placeholder="+7(000)000-0000">
+      <div class="error">&ast;Phone entered incorrectly</div>
+    </div>
+
+    <div class="text">
+      <label for="text">Text</label>
+      <textarea class="text-input" placeholder="Your message"></textarea>
+      <div class="error">&ast;Message not written</div>
+    </div>
+
+    <button class="btn" type="submit">Отправить</button>
+  </form>
+
+  <script src="js/main.js"></script>
+</body>
+
+
+</html>
