@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет-магазин</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">E-shop</div>
+      <div class="cart">
+
+        <form action="#" class="search-form" @submit.prevent="filter">
+          <input type="text" class="search-field" v-model="userSearch">
+          <button class="btn-search" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <button class="btn-cart" type="button" @click="isVisibleCart = !isVisibleCart">Корзина</button>
+        <div class="cart-block" v-show="isVisibleCart">
+          <div class="cart-item" v-for="elem of cartItems">
+            <div class="product-bio">
+              <img :src="imgCart" alt="Some image">
+              <div class="product-desc">
+                <p class="product-title">{{elem.product_name}}</p>
+                <p class="product-quantity">Quantity: {{elem.quantity}}</p>
+                <p class="product-single-price">{{elem.price}} each</p>
+              </div>
+            </div>
+            <div class="right-block">
+              <p class="product-price">{{elem.quantity*elem.price}}</p>
+              <button class="del-btn" @click="remove(elem)">&times;</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+      <div class="products">
+        <p v-if="!filtered.length">Список товаров пуст</p>
+        <div class="product-item" v-for="elem of filtered">
+          <img :src="imgCatalog" alt="Some img">
+          <div class="desc">
+            <h3>{{elem.product_name}}</h3>
+            <p>{{elem.price}} $</p>
+            <button class="buy-btn" @click="addProduct(elem)">Купить</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
